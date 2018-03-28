@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import html2text
 import lxml
 import requests
+import constant
+
+constant.IMG_BASE_URL = 'https://github.com/nineyang/blog-tool/blob/master/'
 
 
 def main(main_url):
@@ -55,6 +58,7 @@ def handlerPage(page):
 def handlerDetail(url):
     result = spider(url)
     soup = BeautifulSoup(result, "lxml")
+    title = soup.find('h1', {'class', 'post-title'}).string.strip()
     content = soup.find('div', class_="post-content")
     content.find('p', class_="post-tags").extract()
     # 如果有图片的话，处理图片，下载图片存到本地
@@ -63,12 +67,11 @@ def handlerDetail(url):
         if img['src'].find("hellonine.top") != -1:
             image = requests.get(img['src'])
             if image.status_code == 200:
-                file = "./images/" + img['alt']
+                file = "images/" + img['alt']
                 open(file, 'wb').write(image.content)
-                # todo 这里的src需要调整域名
-                img['src'] = file
+                img['src'] = constant.IMG_BASE_URL + file
     article = html2text.html2text(str(content))
-    print(article)
+    open('blogs/' + title + '.md', 'w').write(article)
     exit()
 
 
