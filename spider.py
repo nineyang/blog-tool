@@ -69,6 +69,7 @@ def handlerDetail(url):
                 open(file, 'wb').write(image.content)
                 img['src'] = constant.IMG_BASE_URL + file
     article = html2text.html2text(str(content)).replace("https://github.com/nineyang/blog-\ntool","https://github.com/nineyang/blog-tool")
+    article = article.replace('未命名文件 ' , '未命名文件%20')
     print("finish " + title)
     open("blogs/" + title + ".md", 'w').write(article)
 
@@ -77,5 +78,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-url', required=True, help='spider url')
     args = parser.parse_args()
-    # handlerDetail("https://www.hellonine.top/index.php/archives/92/")
+    # handlerDetail("https://www.hellonine.top/index.php/archives/93/")
     main(args.url)

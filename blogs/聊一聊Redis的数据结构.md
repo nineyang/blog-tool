@@ -80,7 +80,7 @@ v8`引擎中的新生代的过程)。
 
 跳跃表作为有序集合的实现方式之一，在`Redis`中也同样扮演者重要的角色。在网上没有找到很好的图示，所以自己根据书中的图花了一个对应的结构图:
 
-![未命名文件 \(2\).png](https://github.com/nineyang/blog-tool/blob/master/images/未命名文件 \(2\).png)
+![未命名文件%20\(2\).png](https://github.com/nineyang/blog-tool/blob/master/images/未命名文件%20\(2\).png)
 
 其中的`o1`,`o2`...代表所绑定的成员对象。而上面的1.0之类的就代表对应的分值了，我们可以看到，跳跃表引入了层级的概念，这会帮助我们系统在查找范围时更加快捷和方便(为什么会更快可以参考这篇[文章](https://toutiao.io/posts/s013fm/preview))。
 
