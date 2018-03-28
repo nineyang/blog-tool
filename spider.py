@@ -1,9 +1,5 @@
-import urllib.request
-import argparse
+import urllib.request, requests, html2text, os, argparse
 from bs4 import BeautifulSoup
-import html2text
-import lxml
-import requests
 import constant
 
 constant.IMG_BASE_URL = 'https://github.com/nineyang/blog-tool/blob/master/'
@@ -59,6 +55,8 @@ def handlerDetail(url):
     result = spider(url)
     soup = BeautifulSoup(result, "lxml")
     title = soup.find('h1', {'class', 'post-title'}).string.strip()
+    if title.find('/'):
+        title = title.replace('/' , '%2F')
     content = soup.find('div', class_="post-content")
     content.find('p', class_="post-tags").extract()
     # 如果有图片的话，处理图片，下载图片存到本地
@@ -71,13 +69,13 @@ def handlerDetail(url):
                 open(file, 'wb').write(image.content)
                 img['src'] = constant.IMG_BASE_URL + file
     article = html2text.html2text(str(content))
-    open('blogs/' + title + '.md', 'w').write(article)
-    exit()
+    print("finish " + title)
+    open("blogs/" + title + ".md", 'w').write(article)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-url', required=True, help='spider url')
     args = parser.parse_args()
-    handlerDetail("https://www.hellonine.top/index.php/archives/93/")
-    # main(args.url)
+    # handlerDetail("https://www.hellonine.top/index.php/archives/93/")
+    main(args.url)
