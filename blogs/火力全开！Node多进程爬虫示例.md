@@ -30,16 +30,14 @@
 
 运行结果:
 
-![e093f1a3-b69c-4d2f-aa08-c6e48f2b4565.png](https://github.com/nineyang/blog-
-tool/blob/master/images/e093f1a3-b69c-4d2f-aa08-c6e48f2b4565.png)
+![e093f1a3-b69c-4d2f-aa08-c6e48f2b4565.png](https://github.com/nineyang/blog-tool/blob/master/images/e093f1a3-b69c-4d2f-aa08-c6e48f2b4565.png)
 
 正如上图所示，我们会根据我们运行服务器的cpu核数来分配`worker`，也就是我们所说的多进程，来帮助我们去同步分化实现一个耗时很长的执行流程。  
 `cluster.fork()`会帮助我们新建一个新的工作进程，当然，正如`worker`可以`send`，`process`可以监听`message`，我们的`cluster`其实也可以监听`fork`，来帮助我们去实现一些初始化的工作。具体的更多的`api`请参考官方文档。
 
 虽然说我们初步实现了一个简单的多进程，但是有没有发现，其实这里面有一个较大的问题，那就是我们每次`fork`的时候，整个流程都会重新执行一次，我们可以加一行代码予以验证:
 
-![330afc80-ffe3-45b1-9564-1c845d43aeff.png](https://github.com/nineyang/blog-
-tool/blob/master/images/330afc80-ffe3-45b1-9564-1c845d43aeff.png)
+![330afc80-ffe3-45b1-9564-1c845d43aeff.png](https://github.com/nineyang/blog-tool/blob/master/images/330afc80-ffe3-45b1-9564-1c845d43aeff.png)
 
 这很显然不符合我们在工作中的实际流程，因此，我们可以继续阅读官方的文档，一定有提供另外的方法来让我们的`master`和`worker`分离。果然，我们很快就找到了我们想要的[结果](http://nodejs.cn/api/cluster.html#cluster_cluster_setupmaster_settings):
 
@@ -71,8 +69,7 @@ tool/blob/master/images/330afc80-ffe3-45b1-9564-1c845d43aeff.png)
         console.log(`i have received your message , my pid is ${process.pid}`);
     });
 
-![59425e11-9154-44d6-a5b9-591f4e76f292.png](https://github.com/nineyang/blog-
-tool/blob/master/images/59425e11-9154-44d6-a5b9-591f4e76f292.png)
+![59425e11-9154-44d6-a5b9-591f4e76f292.png](https://github.com/nineyang/blog-tool/blob/master/images/59425e11-9154-44d6-a5b9-591f4e76f292.png)
 
 很显然，我们的分离是有作用的，这样，我们离我们的多进程爬虫就又进了一步。
 

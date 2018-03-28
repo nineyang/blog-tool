@@ -22,17 +22,14 @@ scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)给我们�
 
 来新建一个我们所需要的子模块，正如下图所示:
 
-![762d9921-ff8a-4031-b2bf-32d4696f511b.png](https://github.com/nineyang/blog-
-tool/blob/master/images/762d9921-ff8a-4031-b2bf-32d4696f511b.png)
+![762d9921-ff8a-4031-b2bf-32d4696f511b.png](https://github.com/nineyang/blog-tool/blob/master/images/762d9921-ff8a-4031-b2bf-32d4696f511b.png)
 
 不过这里需要阐明的是，当我们在父级新建了一个子模块时， **父级并不包含子模块的代码**
 ，而是有一个7位数的字符串来指向子模块所对应的位置，其实通过对比这串字符串和我们子模块的提交记录，我们可以很清晰的得到一个结论：这个字符串就是代表的子模块的提交记录。
 
-![企业微信截图_0e78d5d4-460a-49f0-8c23-467636101cd8.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_0e78d5d4-460a-49f0-8c23-467636101cd8.png)
+![企业微信截图_0e78d5d4-460a-49f0-8c23-467636101cd8.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_0e78d5d4-460a-49f0-8c23-467636101cd8.png)
 
-![企业微信截图_75b44176-abf2-49a7-a429-2bcd01dbaf49.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_75b44176-abf2-49a7-a429-2bcd01dbaf49.png)
+![企业微信截图_75b44176-abf2-49a7-a429-2bcd01dbaf49.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_75b44176-abf2-49a7-a429-2bcd01dbaf49.png)
 
 #### 下拉子模块
 
@@ -59,8 +56,7 @@ tool/blob/master/images/企业微信截图_75b44176-abf2-49a7-a429-2bcd01dbaf49.
 
 来拉取一个新的子模块，需要注意的是，执行`git submodule update`的时候才会真正拉取你的子模块代码。
 
-![企业微信截图_8dc1f6d0-7eb7-445b-81e1-ba6997b43938.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_8dc1f6d0-7eb7-445b-81e1-ba6997b43938.png)
+![企业微信截图_8dc1f6d0-7eb7-445b-81e1-ba6997b43938.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_8dc1f6d0-7eb7-445b-81e1-ba6997b43938.png)
 
 ### 更新子模块
 
@@ -70,11 +66,9 @@ tool/blob/master/images/企业微信截图_8dc1f6d0-7eb7-445b-81e1-ba6997b43938.
 
 刚才我们已经在本地新建了一个`parent_2`的项目，现在我们需要在这个本地仓库中更新子模块再提交到线上仓库中，我们需要做的是先在子模块中切到`master`或者一个新的分支，提交上去之后再回到父类更新子模块的指针。
 
-![企业微信截图_2da4f577-6bc1-4e77-81de-f0e22c06b429.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_2da4f577-6bc1-4e77-81de-f0e22c06b429.png)
+![企业微信截图_2da4f577-6bc1-4e77-81de-f0e22c06b429.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_2da4f577-6bc1-4e77-81de-f0e22c06b429.png)
 
-![企业微信截图_408c3fbb-7dc9-47e8-b0c4-f8399f992938.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_408c3fbb-7dc9-47e8-b0c4-f8399f992938.png)
+![企业微信截图_408c3fbb-7dc9-47e8-b0c4-f8399f992938.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_408c3fbb-7dc9-47e8-b0c4-f8399f992938.png)
 
 正如上图所示，我们更新了父类对应子模块的指针，然后我们把本地的父类推送到线上去。
 
@@ -82,8 +76,7 @@ tool/blob/master/images/企业微信截图_408c3fbb-7dc9-47e8-b0c4-f8399f992938.
 
 当其他人`pull`线上的父类之后，如果有人更新了对应的指针，那么会有这样的一个提示:
 
-![企业微信截图_8212f57d-75b6-42e7-ab33-bf606ee76789.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_8212f57d-75b6-42e7-ab33-bf606ee76789.png)
+![企业微信截图_8212f57d-75b6-42e7-ab33-bf606ee76789.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_8212f57d-75b6-42e7-ab33-bf606ee76789.png)
 
 这个时候我们需要做的是什么呢？聪明的朋友可能已经想到，联系到我们在上面所说， **父级记录的是子模块的指针** 。所以此时我们执行:
 
@@ -94,8 +87,7 @@ tool/blob/master/images/企业微信截图_8212f57d-75b6-42e7-ab33-bf606ee76789.
 即可完成我们的更新。
 
 ![企业微信截图_70757ae4-abcd-48ef-
-becd-a678cd74b8b5.png](https://github.com/nineyang/blog-
-tool/blob/master/images/企业微信截图_70757ae4-abcd-48ef-becd-a678cd74b8b5.png)
+becd-a678cd74b8b5.png](https://github.com/nineyang/blog-tool/blob/master/images/企业微信截图_70757ae4-abcd-48ef-becd-a678cd74b8b5.png)
 
 本文由 [nine](https://www.hellonine.top/index.php/author/1/) 创作，采用
 [知识共享署名4.0](https://creativecommons.org/licenses/by/4.0/) 国际许可协议进行许可  

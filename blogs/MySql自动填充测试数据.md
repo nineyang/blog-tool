@@ -225,8 +225,7 @@ oneofvariable=value`来设置我们 **已经存在**
     delimiter ;
 
 其实实现这个功能的逻辑非常简单，再各个步骤里面也附上了步骤，主要是利用了系统的`information_schema.COLUMNS`表来获取我们需要的一些基本信息，主要结构如下图所示:  
-![81b12bcd-e426-47e7-b7ab-1f96e034826a.png](https://github.com/nineyang/blog-
-tool/blob/master/images/81b12bcd-e426-47e7-b7ab-1f96e034826a.png)
+![81b12bcd-e426-47e7-b7ab-1f96e034826a.png](https://github.com/nineyang/blog-tool/blob/master/images/81b12bcd-e426-47e7-b7ab-1f96e034826a.png)
 
 ## 参考
 

@@ -436,12 +436,10 @@ serve`来启动，并且设置了`.env.local`方法，那么这里就会使用�
         }
 
 目录结构:  
-![9501340f-0b1b-404a-963b-192a45fd29d4.png](https://github.com/nineyang/blog-
-tool/blob/master/images/9501340f-0b1b-404a-963b-192a45fd29d4.png)
+![9501340f-0b1b-404a-963b-192a45fd29d4.png](https://github.com/nineyang/blog-tool/blob/master/images/9501340f-0b1b-404a-963b-192a45fd29d4.png)
 
 其结果:  
-![f3740577-a642-4f9f-bd48-24f2efe44366.png](https://github.com/nineyang/blog-
-tool/blob/master/images/f3740577-a642-4f9f-bd48-24f2efe44366.png)
+![f3740577-a642-4f9f-bd48-24f2efe44366.png](https://github.com/nineyang/blog-tool/blob/master/images/f3740577-a642-4f9f-bd48-24f2efe44366.png)
 
 其实这里`Laravel`使用的大致流程也是如此:
 
@@ -565,8 +563,7 @@ tool/blob/master/images/f3740577-a642-4f9f-bd48-24f2efe44366.png)
 这个对象的`getFilename`方法其实前面也有所阐述，所以我们前面遍历`Finder`对象时，其实每个`$file`都是一个`SplFileInfo`的实例，最后这个实例使用了前面我们所提到的`getRealPath`方法来返回绝对路径。
 
 所以此时返回的`$files`数组是一个以文件名为键，文件名所在的绝对路径为值的数组:  
-![0437e81b-ce2f-4957-8452-e860f3a85a98.png](https://github.com/nineyang/blog-
-tool/blob/master/images/0437e81b-ce2f-4957-8452-e860f3a85a98.png)
+![0437e81b-ce2f-4957-8452-e860f3a85a98.png](https://github.com/nineyang/blog-tool/blob/master/images/0437e81b-ce2f-4957-8452-e860f3a85a98.png)
 
 接下来的逻辑就比较简单了，通过`Repository`的`set`方法来把这个`$files`数组存放在`$this->items`，最后就是判断是否设置生成环境了。
 
@@ -1001,8 +998,7 @@ tool/blob/master/images/0437e81b-ce2f-4957-8452-e860f3a85a98.png)
         }
 
 核心代码主要就是这些，最终调用`get`方法之后，会把名字所对应的`Route`对象一一对应，放置在`RouteCollection`的`routes`数组中(每个方法源码的解释，注释我都已经放置在我的[GitHub](https://github.com/nineyang/laravel_interpretation))，如下图所示:  
-![43c42e39-eb2d-47f1-b16d-54d73c28829b.png](https://github.com/nineyang/blog-
-tool/blob/master/images/43c42e39-eb2d-47f1-b16d-54d73c28829b.png)
+![43c42e39-eb2d-47f1-b16d-54d73c28829b.png](https://github.com/nineyang/blog-tool/blob/master/images/43c42e39-eb2d-47f1-b16d-54d73c28829b.png)
 
 ##### 执行服务提供者(BootProviders)
 

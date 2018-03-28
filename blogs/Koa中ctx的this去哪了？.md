@@ -19,11 +19,9 @@ router`时，发现当我在使用其提供的回调函数来执行一个`contro
             ctx.body = 'hello api';
         }
 
-![f8613432-e34d-4a85-b47e-5f75d7d96b72.png](https://github.com/nineyang/blog-
-tool/blob/master/images/f8613432-e34d-4a85-b47e-5f75d7d96b72.png)
+![f8613432-e34d-4a85-b47e-5f75d7d96b72.png](https://github.com/nineyang/blog-tool/blob/master/images/f8613432-e34d-4a85-b47e-5f75d7d96b72.png)
 
-![9e01e930-81af-4226-a2a5-3a27e1850b1d.png](https://github.com/nineyang/blog-
-tool/blob/master/images/9e01e930-81af-4226-a2a5-3a27e1850b1d.png)
+![9e01e930-81af-4226-a2a5-3a27e1850b1d.png](https://github.com/nineyang/blog-tool/blob/master/images/9e01e930-81af-4226-a2a5-3a27e1850b1d.png)
 
 要阐述`this`为什么会是`undefined`之前，我们先得搞清楚在什么情况下会产生`undefined`。
 
@@ -50,8 +48,7 @@ tool/blob/master/images/9e01e930-81af-4226-a2a5-3a27e1850b1d.png)
 
 上面不是说了吗？最后谁调用`this`就指向谁，这里是`window`对象调用，所以这里的输出应该是`window`对象。但是很遗憾的是，在严格模式下，`this`如果是在`window`下执行，那么就是`undefined`。
 
-![9b03bdbd-3519-479d-ae41-614ccb7e2211.png](https://github.com/nineyang/blog-
-tool/blob/master/images/9b03bdbd-3519-479d-ae41-614ccb7e2211.png)
+![9b03bdbd-3519-479d-ae41-614ccb7e2211.png](https://github.com/nineyang/blog-tool/blob/master/images/9b03bdbd-3519-479d-ae41-614ccb7e2211.png)
 
 所以，我有一个大胆的猜想，为什么`Koa`中的`this`是`undefined`，可能就是因为在严格模式下执行，但是这也不足以证明，所以我就大致的看了一下`Koa`的源码，`koa-
 router`只是一个帮助我们把一些需要执行的函数放在`koa`的`application.js`下的`middleware`中，最终路由匹配还是由`koa`来操作的，所以我发现了如下的代码:
@@ -88,8 +85,7 @@ router`只是一个帮助我们把一些需要执行的函数放在`koa`的`appl
     };
     aaa();
 
-![4f1a9800-6122-4df5-9391-b821a3bc5710.png](https://github.com/nineyang/blog-
-tool/blob/master/images/4f1a9800-6122-4df5-9391-b821a3bc5710.png)
+![4f1a9800-6122-4df5-9391-b821a3bc5710.png](https://github.com/nineyang/blog-tool/blob/master/images/4f1a9800-6122-4df5-9391-b821a3bc5710.png)
 
 所以返回回调之后执行的环境是`window`下，因此才出现了`undefined`的现象。
 
@@ -98,8 +94,7 @@ tool/blob/master/images/4f1a9800-6122-4df5-9391-b821a3bc5710.png)
 既然问题知道了在哪里，所以也就知道该如何解决了，因此，我在重新包装`koa-
 router`的路由的时候，给这个函数绑定了我给他生成的`controller`，即一个对象的实例。这样，我就可以在`controller`层做一些放心大胆的`this`操作了:
 
-![42a5f4ea-eaca-4a17-8abb-a150b0312f55.png](https://github.com/nineyang/blog-
-tool/blob/master/images/42a5f4ea-eaca-4a17-8abb-a150b0312f55.png)
+![42a5f4ea-eaca-4a17-8abb-a150b0312f55.png](https://github.com/nineyang/blog-tool/blob/master/images/42a5f4ea-eaca-4a17-8abb-a150b0312f55.png)
 
 不过，既然聊到了这里，那我就顺便说一些我对于`bind`,`call`,`apply`的理解，如有不对的地方还望指点。
 
@@ -130,8 +125,7 @@ tool/blob/master/images/42a5f4ea-eaca-4a17-8abb-a150b0312f55.png)
     a.test.bind(b)();
 
 其结果:  
-![e13f6cde-16b1-4660-8111-6ee02d32b01c.png](https://github.com/nineyang/blog-
-tool/blob/master/images/e13f6cde-16b1-4660-8111-6ee02d32b01c.png)
+![e13f6cde-16b1-4660-8111-6ee02d32b01c.png](https://github.com/nineyang/blog-tool/blob/master/images/e13f6cde-16b1-4660-8111-6ee02d32b01c.png)
 
 ### call&apply
 
@@ -157,8 +151,7 @@ tool/blob/master/images/e13f6cde-16b1-4660-8111-6ee02d32b01c.png)
     a.test.apply(b , ['hello' , 'nine']);
 
 其结果:  
-![d493de29-f985-48ec-967b-96ba658e6e6b.png](https://github.com/nineyang/blog-
-tool/blob/master/images/d493de29-f985-48ec-967b-96ba658e6e6b.png)
+![d493de29-f985-48ec-967b-96ba658e6e6b.png](https://github.com/nineyang/blog-tool/blob/master/images/d493de29-f985-48ec-967b-96ba658e6e6b.png)
 
 ### 箭头函数
 
@@ -184,8 +177,7 @@ new.target。这些函数表达式最适合用于非方法函数，并且它们�
     obj.c();
     //10 obj
 
-![3d15413c-9234-4dfc-8cd7-58a4afd9069c.png](https://github.com/nineyang/blog-
-tool/blob/master/images/3d15413c-9234-4dfc-8cd7-58a4afd9069c.png)
+![3d15413c-9234-4dfc-8cd7-58a4afd9069c.png](https://github.com/nineyang/blog-tool/blob/master/images/3d15413c-9234-4dfc-8cd7-58a4afd9069c.png)
 
 ### 参考
 

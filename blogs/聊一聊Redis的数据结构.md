@@ -62,8 +62,7 @@ Set`是不够严谨和准确的，准确的来讲，这是`Redis`的五个对象
 
 字典相对而言结构会复杂一些，下图是该书的作者所画的字典的结构图:
 
-![10f70bfc-3133-4edb-9a2a-f440c65ad816.png](https://github.com/nineyang/blog-
-tool/blob/master/images/10f70bfc-3133-4edb-9a2a-f440c65ad816.png)
+![10f70bfc-3133-4edb-9a2a-f440c65ad816.png](https://github.com/nineyang/blog-tool/blob/master/images/10f70bfc-3133-4edb-9a2a-f440c65ad816.png)
 
 `dict`中有两个较为重要的，一个是`ht`数组，包含了两个`dictht`结构，为什么有两个，这样岂不是很占内存吗？的确，不过第二个`dictht`其实是为了减少我们在`rehash`中所耗费的时间而采用的一种解决方式。  
 `rehashidx`代表此字典是否在`rehash`的过程中。
@@ -81,8 +80,7 @@ v8`引擎中的新生代的过程)。
 
 跳跃表作为有序集合的实现方式之一，在`Redis`中也同样扮演者重要的角色。在网上没有找到很好的图示，所以自己根据书中的图花了一个对应的结构图:
 
-![未命名文件 \(2\).png](https://github.com/nineyang/blog-
-tool/blob/master/images/未命名文件 \(2\).png)
+![未命名文件 \(2\).png](https://github.com/nineyang/blog-tool/blob/master/images/未命名文件 \(2\).png)
 
 其中的`o1`,`o2`...代表所绑定的成员对象。而上面的1.0之类的就代表对应的分值了，我们可以看到，跳跃表引入了层级的概念，这会帮助我们系统在查找范围时更加快捷和方便(为什么会更快可以参考这篇[文章](https://toutiao.io/posts/s013fm/preview))。
 
@@ -129,8 +127,7 @@ entryX:列表中所对应的节点
 
 前面已经讲完了我们所需要用到的`Redis`的几种数据结构，我们所使用的五种类型，正是基于这几种数据结构来实现的，但是前面我们也说过了，一种类型可以由不同的数据结构来实现，或者由几个数据结构来共同实现。下面我整理了一个表格，关于这五种类型的实现方式以及细节:
 
-![ec6ec340-47d8-477f-bb5f-bf3dd41fd196.png](https://github.com/nineyang/blog-
-tool/blob/master/images/ec6ec340-47d8-477f-bb5f-bf3dd41fd196.png)
+![ec6ec340-47d8-477f-bb5f-bf3dd41fd196.png](https://github.com/nineyang/blog-tool/blob/master/images/ec6ec340-47d8-477f-bb5f-bf3dd41fd196.png)
 
 ## 参考
 

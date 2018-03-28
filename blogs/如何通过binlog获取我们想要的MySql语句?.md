@@ -4,13 +4,11 @@
 假设此时我们有一个需要查询和读取`Mysql`最近操作`DDL`的信息，我们需要怎么处理？  
 聪明的你可能已经想到了，我们可以使用`mysqlbinlog`工具读取啊！的确，`mysqlbinlog`对于`statement`或者`mixed`格式的`binlog`文件确实会很方便读取，但是你要知道，从`Mysql5.7.7`开始，`row`就是默认的`binlog_format`，此时我们再要去直接通过肉眼去看，恐怕就不是那么容易了。
 
-![d9630274-0be7-465a-8a0d-46dbe3d2441a.png](https://github.com/nineyang/blog-
-tool/blob/master/images/d9630274-0be7-465a-8a0d-46dbe3d2441a.png)
+![d9630274-0be7-465a-8a0d-46dbe3d2441a.png](https://github.com/nineyang/blog-tool/blob/master/images/d9630274-0be7-465a-8a0d-46dbe3d2441a.png)
 
 即使我们在通过`mysqlbinlog`解析时加上`-v`参数，也只能显示出这样的效果:
 
-![f764edef-7cbd-421a-a6ea-d468aa803353.png](https://github.com/nineyang/blog-
-tool/blob/master/images/f764edef-7cbd-421a-a6ea-d468aa803353.png)
+![f764edef-7cbd-421a-a6ea-d468aa803353.png](https://github.com/nineyang/blog-tool/blob/master/images/f764edef-7cbd-421a-a6ea-d468aa803353.png)
 
 于是，我写了一个[binlog2sql](https://github.com/nineyang/binlog2sql)的初级版本，来实现`sql`语句的转换。
 
@@ -97,8 +95,7 @@ tool/blob/master/images/f764edef-7cbd-421a-a6ea-d468aa803353.png)
 
 当我们执行`Binlog.php`的`start`方法之后，就可以把`DDL`写入到'./data/mysql.sql'中了，非常方便。
 
-![99b20b6e-d44e-4838-9827-e7c02d3fd69e.png](https://github.com/nineyang/blog-
-tool/blob/master/images/99b20b6e-d44e-4838-9827-e7c02d3fd69e.png)
+![99b20b6e-d44e-4838-9827-e7c02d3fd69e.png](https://github.com/nineyang/blog-tool/blob/master/images/99b20b6e-d44e-4838-9827-e7c02d3fd69e.png)
 
 本文由 [nine](https://www.hellonine.top/index.php/author/1/) 创作，采用
 [知识共享署名4.0](https://creativecommons.org/licenses/by/4.0/) 国际许可协议进行许可  

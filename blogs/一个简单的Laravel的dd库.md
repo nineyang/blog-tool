@@ -43,23 +43,19 @@ clone 下来即可
 
   1. string
 
-![d84bc944-3427-4ad8-bee4-822f6ce1775a.png](https://github.com/nineyang/blog-
-tool/blob/master/images/d84bc944-3427-4ad8-bee4-822f6ce1775a.png)
+![d84bc944-3427-4ad8-bee4-822f6ce1775a.png](https://github.com/nineyang/blog-tool/blob/master/images/d84bc944-3427-4ad8-bee4-822f6ce1775a.png)
 
   1. array
 
-![d5f42a26-f46b-4a5f-9894-a558e8be994b.png](https://github.com/nineyang/blog-
-tool/blob/master/images/d5f42a26-f46b-4a5f-9894-a558e8be994b.png)
+![d5f42a26-f46b-4a5f-9894-a558e8be994b.png](https://github.com/nineyang/blog-tool/blob/master/images/d5f42a26-f46b-4a5f-9894-a558e8be994b.png)
 
   1. function
 
-![9f0c4815-d1a6-4d3f-999a-0ceeb6ab49ac.png](https://github.com/nineyang/blog-
-tool/blob/master/images/9f0c4815-d1a6-4d3f-999a-0ceeb6ab49ac.png)
+![9f0c4815-d1a6-4d3f-999a-0ceeb6ab49ac.png](https://github.com/nineyang/blog-tool/blob/master/images/9f0c4815-d1a6-4d3f-999a-0ceeb6ab49ac.png)
 
   1. object
 
-![2f1a3c3a-c621-46ee-97d2-ff610d245a9e.png](https://github.com/nineyang/blog-
-tool/blob/master/images/2f1a3c3a-c621-46ee-97d2-ff610d245a9e.png)
+![2f1a3c3a-c621-46ee-97d2-ff610d245a9e.png](https://github.com/nineyang/blog-tool/blob/master/images/2f1a3c3a-c621-46ee-97d2-ff610d245a9e.png)
 
 ## 结构
 
